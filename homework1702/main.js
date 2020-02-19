@@ -4,6 +4,11 @@ import { Square } from './modules/square.js';
 import { Circle } from './modules/circle.js';
 import { Triangle } from './modules/triangle.js';
 
+//curly brackets are required for named exports, but they are not required for export default.
+import User from './modules/user.js';
+
+import {sayHi} from './modules/say.js'
+
 // create the canvas and reporting list
 let myCanvas = new Canvas('myCanvas', document.body, 480, 320);
 myCanvas.create();
@@ -26,3 +31,9 @@ let triangle1 = new Triangle(myCanvas.ctx, myCanvas.listId, 100, 75, 190, 'yello
 triangle1.draw();
 triangle1.reportArea();
 triangle1.reportPerimeter();
+
+let user = new User('John');
+console.log(user);
+
+sayHi('John')
+

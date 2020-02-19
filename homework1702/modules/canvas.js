@@ -45,4 +45,3 @@ class Canvas {
 }
 
 export { Canvas };
-© 2020 GitHub, Inc.
