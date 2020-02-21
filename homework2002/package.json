@@ -1,0 +1,18 @@
+{
+  "name": "homework2002",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "lodash": "^4.17.15",
+    "axios": "^0.19.2",
+    "bootstrap": "^4.4.1",
+    "moment": "^2.24.0",
+    "font-awesome": "^4.7.0"
+  }
+}
