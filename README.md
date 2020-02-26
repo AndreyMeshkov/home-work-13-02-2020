@@ -95,4 +95,12 @@ Fetch API https://developer.mozilla.org/ru/docs/Web/API/Fetch_API/Using_Fetch
 * команды в NPM - https://docs.npmjs.com/cli-documentation/cli
 * документация Webpack - https://webpack.js.org/guides/
 
+### Home Work 24.02.2020
+* установить Typescript
+* изучить возможности типизации для переменных, функций, полей классов и т.д
+* изучить возможности OOП в Typescript - интерфейсы, классы, абстрактные классы, наследование, имплементация, область видимости полей классов, enum
+* создать класс и функцию с одним или несколькими generic полями/параметрами (примечание: generic типам можно задавать тип по умолчанию, а также указывать границы с помощью extends)
+
+Документация Typescript - https://www.typescriptlang.org/docs/home.html  
+Советы как писать код - https://github.com/labs42io/clean-code-typescript
 
