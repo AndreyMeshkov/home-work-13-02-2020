@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {Todo, TodosService} from './service/todos.service';
+import {Todo, TodosService} from './services/todos.service';
 
 @Component({
   selector: 'app-root',
@@ -11,6 +11,7 @@ export class AppComponent implements OnInit {
   todos: Todo[] = [];
   loading = false;
   todoTitle = '';
+  x = 'RANDOM_TEXT';
 
   constructor(private todosService: TodosService) {}
 
