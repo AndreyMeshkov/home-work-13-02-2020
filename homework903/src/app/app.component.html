@@ -1,60 +1,86 @@
 <div class="container">
-  <form class="card">
+  <form class="card" [formGroup]="form" (ngSubmit)="submit()">
     <h1>Home Work 09.03</h1>
 
     <div class="form-control">
       <label>Страна</label>
-      <input type="text" placeholder="страна">
+      <input type="text" placeholder="страна" formControlName="country" [attr.disabled]="true">
       <div class="validation"></div>
     </div>
-
-    <div class="form-control">
-        <label>Область</label>
-        <select>
-          <option value="minsk">Минская</option>
-          <option value="grodno">Гродненская</option>
-          <option value="brest">Брестская</option>
-          <option value="mogilev">Могилевская</option>
-          <option value="gomel">Гомельская</option>
-          <option value="vitebsk">Витебская</option>
-        </select>
+    <div class="card" formGroupName="address">
+      <div class="form-control">
+          <label>Область</label>
+          <select formControlName="region">
+            <option value="minsk">Минская</option>
+            <option value="grodno">Гродненская</option>
+            <option value="brest">Брестская</option>
+            <option value="mogilev">Могилевская</option>
+            <option value="gomel">Гомельская</option>
+            <option value="vitebsk">Витебская</option>
+          </select>
+        <div class="validation" *ngIf="form.get('region').invalid && form.get('region').touched">
+          <small>
+            Поле Область не может быть пустым
+          </small>
+        </div>
+      </div>
     </div>
 
-    <div class="form-control">
-      <label>Город</label>
-      <select>
-        <option value="capital">Минск</option>
-        <option value="city">Борисов</option>
-      </select>
+    <div class="card" formGroupName="city" (click)="setCity()">
+      <div class="form-control">
+        <label>Город</label>
+        <select formControlName="nameCity">
+          <option value="town">{{regionCity[0]}}</option>
+          <option value="town1">{{regionCity[1]}}</option>
+          <option value="town2">{{regionCity[2]}}</option>
+        </select>
+        <div class="validation" *ngIf="form.get('nameCity').invalid && form.get('nameCity').touched">
+          <small>
+            Поле Город не может быть пустым
+          </small>
+        </div>
+      </div>
     </div>
 
     <div class="form-control">
       <label>Улица</label>
-      <input type="text" placeholder="улица">
-      <div class="validation"></div>
+      <input type="text" placeholder="улица" formControlName="street">
+      <div class="validation" *ngIf="form.get('street').invalid && form.get('street').touched">
+        <small>
+          Поле Улица не может быть пустым
+        </small>
+      </div>
     </div>
 
     <div class="form-control">
       <label>Дом</label>
-      <input type="text" placeholder="дом">
-      <div class="validation"></div>
+      <input type="text" placeholder="дом" formControlName="house">
+      <div class="validation" *ngIf="form.get('house').invalid && form.get('house').touched">
+        <small>
+          Поле Дом не может быть пустым
+        </small>
+      </div>
     </div>
 
     <div class="form-control">
       <label>Квартира</label>
-      <input type="text" placeholder="квартира">
+      <input type="text" placeholder="квартира" formControlName="apartment">
       <div class="validation"></div>
     </div>
 
     <div class="form-control">
       <label>Почтовый код</label>
-      <input type="text" placeholder="почтовый код">
-      <div class="validation"></div>
+      <input type="text" placeholder="почтовый код" formControlName="postal">
+      <div class="validation" *ngIf="form.get('postal').invalid && form.get('postal').touched">
+        <small>
+          Поле Почтовый код должно содержать 6 цифр
+        </small>
+      </div>
     </div>
 
     <div>
-      <button class="btn">Отправить</button>
-      <button class="btn">Отменить</button>
+      <button class="btn" type="submit" [disabled]="form.invalid">Отправить</button>
+      <button class="btn" type="reset">Отменить</button>
     </div>
 
   </form>
