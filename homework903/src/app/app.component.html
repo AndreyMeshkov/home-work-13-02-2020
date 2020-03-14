@@ -7,7 +7,7 @@
       <input type="text" placeholder="страна" formControlName="country" [attr.disabled]="true">
       <div class="validation"></div>
     </div>
-    <div class="card" formGroupName="address">
+
       <div class="form-control">
           <label>Область</label>
           <select formControlName="region">
@@ -24,23 +24,19 @@
           </small>
         </div>
       </div>
-    </div>
 
-    <div class="card" formGroupName="city" (click)="setCity()">
       <div class="form-control">
         <label>Город</label>
-        <select formControlName="nameCity">
-          <option value="town">{{regionCity[0]}}</option>
-          <option value="town1">{{regionCity[1]}}</option>
-          <option value="town2">{{regionCity[2]}}</option>
-        </select>
-        <div class="validation" *ngIf="form.get('nameCity').invalid && form.get('nameCity').touched">
+        <select formControlName="city">
+          <option value="town">Минск</option>
+          <option value="town1">Борисов</option>
+         </select>
+        <div class="validation" *ngIf="form.get('city').invalid && form.get('city').touched">
           <small>
             Поле Город не может быть пустым
           </small>
         </div>
       </div>
-    </div>
 
     <div class="form-control">
       <label>Улица</label>

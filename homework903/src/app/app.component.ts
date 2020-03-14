@@ -8,17 +8,14 @@ import {FormControl, FormGroup, Validators} from '@angular/forms';
 })
 export class AppComponent implements OnInit {
   form: FormGroup;
-  regionCity: any;
+  regionCity: string;
+  regionCity1: string;
 
   ngOnInit() {
   this.form = new FormGroup({
     country: new FormControl('Республика Беларусь'),
-    address: new FormGroup({
-      region: new FormControl('', Validators.required),
-      city: new FormGroup({
-        nameCity: new FormControl('', Validators.required)
-      })
-    }),
+    region: new FormControl('', Validators.required),
+    city: new FormControl('', Validators.required),
     street: new FormControl(null, Validators.required),
     house: new FormControl(null, Validators.required),
     apartment: new FormControl(null),
@@ -33,21 +30,4 @@ export class AppComponent implements OnInit {
     console.log('FormData', formData);
   }
 
-  setCity() {
-    const cityMap = {
-      minsk: 'Минск', //, 'Солигорск', 'Борисов'],
-      grodno: 'Гродно',//, 'Лида', 'Мосты'],
-      brest: 'Брест',//, 'Барановичи', 'Пинск'],
-      mogilev: 'Могилёв',//, 'Бобруйск', 'Кричев'],
-      gomel: 'Гомель',//, 'Мозырь', 'Жлобин'],
-      vitebsk: 'Витебск'//, 'Орша', 'Полоцк']
-    };
-    const cityKey = this.form.get('address').get('region').value;
-    const regionCity = cityMap[cityKey];
-
-    console.log(regionCity);
-    this.form.patchValue({
-      address: {region: regionCity}
-    });
-  }
 }
